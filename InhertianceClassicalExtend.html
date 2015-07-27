@@ -1,0 +1,73 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+</head>
+<body>
+    <script>
+        /*
+        Let’s wrap up with yet another way to implement inheritance, which is probably the
+closest to PHP because it looks like a constructor function inheriting from another
+constructor function; hence, it looks a bit like a class inheriting from a class.
+Here’s the gist:
+
+        */
+
+        function extend(Child, Parent) {
+            var F = function () { };
+            F.prototype = Parent.prototype;
+            Child.prototype = new F();
+        }
+
+        /*
+        With this method, you pass two constructor functions to extend(). After extend() is
+done, any new objects created with the first constructor (the child) get all the properties
+and methods of the second (the parent) via the prototype property.
+
+        */
+
+        /*
+        This method is often referred to as “classical” in quotes because it looks
+the closest to the idea of classes.
+
+        */
+
+        /*
+
+        There are only two small things to add to extend():
+1. Have the child keep a reference to the parent, just in case.
+2. Reset the constructor property of the child to point to the child’s constructor, in
+case this is needed for introspection (you’ll see some more about this property in
+Chapter 5):
+        */
+        function extend(Child, Parent) {
+            var F = function () { };
+            F.prototype = Parent.prototype;
+            Child.prototype = new F();
+            Child.prototype.parent = Parent;   // have the child keep a reference to the parent
+            Child.prototype.constructor = Child;  // reset the constructor property of the child to point to the child's constructor
+        }
+
+        function Parent() {
+            this.name = "Papa";
+        }
+
+        Parent.prototype.family = "Bear";
+        function Child() { }
+        extend(Child, Parent);
+
+        /*
+        The property name is not inherited, but the family is:
+        */
+        new Child().name; // undefined
+        new Child().family; // "Bear"
+
+        /*
+        And the child has access to the parent:
+        */
+        Child.prototype.parent === Parent; // true
+
+
+    </script>
+</body>
+</html>

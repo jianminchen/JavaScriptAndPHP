@@ -1,0 +1,53 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+</head>
+<body>
+    <script>
+        /*
+        Similar to PHP’s array_map() and array_reduce(), in ES5 you have Array.proto
+type.map() and Array.prototype.reduce(), plus one more Array.prototype.re
+duceRight().
+map() returns a new array where each element has been changed by your custom callback
+function.
+Here’s a function that turns a character into its HTML entity form:
+        */
+
+        function entity(char) {
+            return "&#" + char.charCodeAt(0) + ";";
+        }
+
+        /*
+        Now let’s apply it to all elements of an array:
+        */
+
+        var input = ['a', 'b', 'c', '0'];
+        var out = input.map(entity);
+        out; // ["&#97;", "&#98;", "&#99;"]
+
+        /*
+        Array.prototype.reduce() takes an array and reduces it to a single value, using a
+callback function.
+Say you want to sum all numbers in an array and add 100 to the result. So you start with
+100 and iteratively add the next value to the running sum:
+        */
+
+        function sum(running_sum, value, index, array) {
+            console.log(arguments);
+            return running_sum + value;
+        }
+        [1, 2, 3].reduce(sum, 100); // 106
+
+        /*
+        During the iteration, you’ll see in the console:
+[100, 1, 0, Array[3]]
+[101, 2, 1, Array[3]]
+[103, 3, 2, Array[3]]
+        */
+
+
+
+    </script>
+</body>
+</html>

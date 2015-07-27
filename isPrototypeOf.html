@@ -1,0 +1,24 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+</head>
+<body>
+
+    <script>
+
+        Array.isPrototypeOf({}); // false
+        Array.prototype.isPrototypeOf({}); // false
+        Array.prototype.isPrototypeOf([]); // true
+
+        // This method also follows the inheritance chain:
+        Object.prototype.isPrototypeOf([]); // true
+
+        // Arrays are objects
+
+
+
+    </script>
+
+</body>
+</html>

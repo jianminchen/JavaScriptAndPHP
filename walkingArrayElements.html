@@ -1,0 +1,36 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+</head>
+<body>
+    <script>
+        /*
+        ES5 adds Array.prototype.forEach(), which allows you to loop over all array elements
+without a loop construct. It takes a callback function in which you can do an
+operation with each element or with the whole array.
+Here’s a quick example that logs the arguments passed to the callback function:
+        */
+
+        ["a", "b", "c"].forEach(function () {
+            console.log(arguments);
+        });
+
+        /*  output: 
+        ["a", 0, ["a", "b", "c"]]
+        ["b", 1, ["a", "b", "c"]]
+        ["c", 2, ["a", "b", "c"]]
+        */
+
+        /*
+        The result in the console will be:
+        ["a", 0, Array[3]]
+        ["b", 1, Array[3]]
+        ["c", 2, Array[3]]
+        */
+
+        //[the element, its index, the whole array]
+
+    </script>
+</body>
+</html>

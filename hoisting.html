@@ -1,0 +1,41 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+</head>
+<body>
+    <script>
+        var a = 1;
+        function hoistingTest() {
+            console.log(a);
+            var a = 2;
+            console.log(a);
+        }
+
+        hoistingTest(); // Logs "undefined", then 2
+
+
+        // manual hoisting - avoid error 
+        function hoistingTest_manual() {
+            var a;
+            console.log(a);
+            a = 2;
+            console.log(a);
+        }
+
+        hoistingTest_manual();
+
+        //  mental hoisting 
+        function mine() {
+            // Declare all, once at the top
+            var a, b = 2, c = 3;
+            // Use later, anywhere
+            // ...
+            a = b;
+            // ...
+            return c + a;
+        }
+
+    </script>
+</body>
+</html>

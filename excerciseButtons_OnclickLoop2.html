@@ -1,0 +1,27 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
+    <script>
+        $(document).ready(function () {
+
+            function binder(i) {
+                return function () {
+                    return alert("This is button: " + i);
+                };
+            }
+
+            for (var i = 1; i <= 3; i++) {
+                document.getElementById('button-' + i).onclick = binder(i); 
+            }
+        })
+</script>
+
+</head>
+<body>
+    <button id="button-1">one</button>
+    <button id="button-2">two</button>
+    <button id="button-3">three</button>
+</body>
+</html>

@@ -1,0 +1,26 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+</head>
+<body>
+    <script>
+        /*
+        Filtering
+        ES5 adds Array.prototype.filter(), which, just like PHP’s array_filter(), lets you
+        execute a callback function on every array element. If the callback returns true, the
+        elements gets pushed to a new array, which is returned at the end:
+        */
+
+        function testVowels(char) {
+            return (/[aeiou]/i).test(char);
+        }
+        var input = ["a", "b", "c", "d", "e"];
+        var output = input.filter(testVowels);
+        output.join(', '); // "a, e"
+
+
+
+    </script>
+</body>
+</html>

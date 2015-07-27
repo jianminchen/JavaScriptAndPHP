@@ -1,0 +1,38 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+</head>
+<body>
+    <script>
+
+        //function expression
+        var sum = function (a, b) {
+            return a + b;
+        };
+        sum(2, 2); // 4
+
+
+        //named function expression (NFE)
+        var sum2 = function plum(a, b) {
+            return a + b;
+        };
+        sum2(21, 21); // 42
+        try{
+            plum(21, 21); // Error: plum() is not defined
+        } catch (e) {
+            console.log(e.message); 
+        }
+
+        sum2.name; // "plum"
+        //advice: variable name matchs function name, avoid duplicate variable names, confusion!
+        
+        var sum3 = function sum3(a, b) {
+            return a + b;
+        };
+
+        var i = 1; 
+
+    </script>
+</body>
+</html>

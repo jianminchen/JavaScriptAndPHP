@@ -1,0 +1,22 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+</head>
+<body>
+    <script>
+        function sum(a, b) {
+            return a + b;
+        }
+
+        sum.length; // 2
+
+        sum.call(null, 3, 4); // 7
+        sum.apply(null, [3, 4]); // 7
+
+
+
+    </script>
+
+</body>
+</html>

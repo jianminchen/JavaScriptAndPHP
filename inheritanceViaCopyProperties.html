@@ -1,0 +1,57 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+</head>
+<body>
+    <script>
+
+        /*
+
+        Since inheritance is all about reusing code, another way to implement it is to simply
+copy over properties from one object to another.
+Imagine you have these objects:
+
+        */
+
+        var shiny = {
+            shiny: true,
+            round: true
+        };
+        var normal = {
+            name: 'name me',
+            getName: function () {
+                return this.name;
+            }
+        };
+
+
+        /*
+
+        How can shiny get the properties of normal? Here’s a simple extend() function that
+loops through and copies properties:
+
+        */
+
+        function extend(parent, child) {
+            for (var i in parent) {
+                if (parent.hasOwnProperty(i)) {
+                    child[i] = parent[i];
+                }
+            }
+        }
+
+        extend(normal, shiny); // Inherit
+
+        shiny.getName(); // "name me"
+
+        /*
+            Copying properties may look like overhead and something that can hurt performance,
+but for many tasks it’s just fine. You can also see that this is an easy way to implement
+mixins and multiple inheritance.
+        */
+
+       
+    </script>
+</body>
+</html>

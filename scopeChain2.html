@@ -1,0 +1,38 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+</head>
+<body>
+    <script>
+        var global_ten = 10;
+        // __variables object contains all global variables
+        // {
+        // global_ten: 10,
+        // papa: function () {...},
+        // ... all other globals
+        // }
+        function papa() {
+            var hundred_more = 100;
+            // __variables object has {hundred_more: 100}
+            // __scope proprerty points to the variable object of the outer
+            // Lexical environment (in other words, the global __variables object)
+        }
+
+        var global_ten = 10;
+        
+        function papa() {
+            var hundred_more = 100;
+            var sum = function (a, b) {
+            return a + b + global_ten + hundred_more;
+            };
+            return sum(9, 11);
+            }
+        
+        papa(); // 130
+
+
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,26 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+</head>
+<body>
+    <script>
+
+       // As illustrated previously, constructor is a property that lets you figure out which constructor
+        //function was used to create the object:
+
+        ({}).constructor === Object; // true
+        ({}).constructor === Array; // false
+
+        //Since only one specific constructor was used to create the object, you cannot use the
+        //constructor property to look up the inheritance chain the way you’d do with isProto
+          //  typeOf():
+
+        ([]).constructor === Array; // true
+        ([]).constructor === Object; // false
+
+
+
+    </script>
+</body>
+</html>

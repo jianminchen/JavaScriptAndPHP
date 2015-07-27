@@ -1,0 +1,47 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+</head>
+<body>
+    <script>
+        /*
+        The default way to implement inheritance is to use prototypes. You create one object
+        using a parent constructor and set it as a prototype of the child constructor.
+        Here’s a constructor function that will be the parent:
+        */
+
+        function NormalObject() {
+            this.name = 'normal';
+            this.getName = function () {
+                return this.name;
+            };
+        }
+
+        /*
+        And a second constructor:
+        */
+        function PreciousObject() {
+            this.shiny = true;
+            this.round = true;
+        }
+
+        /*
+        And the inheritance part:
+        */
+        PreciousObject.prototype = new NormalObject();
+
+        /*
+        Voila! Now you can create precious objects with all the functionality of the normal
+objects:
+        */
+        var crystal_ball = new PreciousObject();
+        crystal_ball.name = 'Ball, Crystal Ball.';
+        crystal_ball.round; // true
+        crystal_ball.getName(); // "Ball, Crystal Ball."
+
+
+
+        </script>
+</body>
+</html>

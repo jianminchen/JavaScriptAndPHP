@@ -1,0 +1,70 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+</head>
+<body>
+    <script>
+        /*
+        Using call() and apply() gives you an opportunity to reuse code without having to
+deal with inheritance at all. After all, inheritance is meant to help us reuse code.
+If you see a method you like, you can temporarily borrow it, passing your own object
+to be bound to this:
+        */
+        var object = {
+            name: "normal",
+            sayName: function () {
+                return "My name is " + this.name;
+            }
+        };
+        var precious = {
+            shiny: true,
+            name: "iPhone"
+        };
+
+        function extend(Child, Parent) {
+            var F = function () { };
+            F.prototype = Parent.prototype;
+            Child.prototype = new F();
+            Child.prototype.parent = Parent;
+            Child.prototype.constructor = Child;
+        }
+
+        /*
+        If precious wants to benefit from object.sayName() without extending anything, it
+can simply do the following:
+        */
+        object.sayName.call(precious); // "My name is iPhone"
+
+        /*
+        If you combine method borrowing and classical inheritance, you can also get both own
+and prototype properties:
+        */
+        function Parent(name) {
+            this.name = name;
+        }
+
+        Parent.prototype.family = "Bear";
+
+        function Child() {
+            Child.prototype.parent.apply(this, arguments);
+        }
+
+        extend(Child, Parent);
+
+        /*
+        All this properties become own properties of the child. And via the magic of argu
+ments and apply(), you can also have arguments passed to the constructors, if you so
+desire:
+        */
+
+        var bear = new Child("Cub");
+        bear.name; // "Cub"
+        bear.family; // "Bear"
+        bear.hasOwnProperty('name'); // true
+        bear.hasOwnProperty('family'); // false
+
+
+    </script>
+</body>
+</html>

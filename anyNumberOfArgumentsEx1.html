@@ -1,0 +1,23 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+</head>
+<body>
+    <script>
+        function sum(/* nothing here */) {
+            for (var i = 0, result = 0; i < arguments.length; i++) {
+                result += arguments[i];
+            }
+            return result;
+        }
+        sum(); // 0
+        sum(111); // 111
+        sum(1, 2); // 3
+        sum(1, 2, 3); // 6
+        sum(1, 10, 2, 9, 3, 8); // 33
+
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,41 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+</head>
+<body>
+    <script>
+
+        // Here you have a function with all four default
+        // parameters, mimicking PHP's declaration:
+        // function sum($a = 1, $b = 2, $c = 3, $d = 4) ...
+        function sum(a, b, c, d) {
+            // Note: no `break` needed
+            switch (arguments.length) {
+                case 0: a = 1;
+                case 1: b = 2;
+                case 2: c = 3;
+                case 3: d = 4;
+            }
+            return a + b + c + d;
+        }
+        // test
+        sum(); // 10
+        sum(1); // 10
+        sum(11); // 20
+        sum(1, 2, 3, 24); // 30
+        sum(11, 22); // 40
+
+
+
+        // arguments is an object, not an array
+        function sum2() {
+            var args = Array.prototype.slice.call(arguments);
+            typeof arguments.push; // "undefined"
+            typeof args.push; // "function"
+        }
+        sum2();
+
+    </script>
+</body>
+</html>

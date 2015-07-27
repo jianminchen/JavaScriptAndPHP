@@ -1,0 +1,35 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+</head>
+<body>
+    <script>
+
+        /*
+        Testing the Array Content
+        Two new methods, every() and some(), let you iterate over all array elements and return
+        a boolean, whether or not the array elements satisfy a check you provide in a callback.
+        Say you want to check if an array contains even numbers. The check will be:
+        */
+
+        function isEven(num) {
+            return num % 2 === 0;
+        }
+
+        /*
+        And the tests:
+        */
+
+        // Are *all* of the numbers even?
+        [1, 2, 4].every(isEven); // false
+        // Are at least some (or even one) of the numbers even?
+        [1, 2, 4].some(isEven); // true
+
+
+
+
+    </script>
+
+</body>
+</html>

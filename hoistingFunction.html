@@ -1,0 +1,26 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+</head>
+<body>
+    <script>
+        // Global scope
+        function declare() {}
+        var express = function () {};
+        (function () {
+            // Local scope
+            console.log(typeof declare); // "function"
+            console.log(typeof express); // "undefined"
+            function declare() {}
+
+            var express = function () { };
+            console.log(typeof declare); // "function"
+            console.log(typeof express); // "function"
+        }());
+
+
+
+    </script>
+</body>
+</html>

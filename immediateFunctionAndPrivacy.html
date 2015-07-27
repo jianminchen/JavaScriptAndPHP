@@ -1,0 +1,55 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+</head>
+<body>
+    <script>
+        /*
+        Immediate function are also often used to achieve privacy. You can have global functions
+that are defined in the closure of another function and share this closure’s local scope.
+        */
+
+        var next, previous, rewind; // Globals
+
+        (function () {
+            // Private data
+            var index = -1;
+
+            var data = ['eeny', 'meeny', 'miny', 'moe'];
+            var count = data.length;
+            next = function () {
+                if (index < count) {
+                    index++;
+                }
+                return data[index];
+            };
+            previous = function () {
+                if (index >= 0) {
+                    index--;
+                }
+                return data[index];
+            };
+            rewind = function () {
+                index = -1;
+            };
+        }());
+
+        //Testing going back and forth:
+        next(); // "eeny"
+        next(); // "meeny"
+        previous(); // "eeny"
+
+        //More testing: rewind and start over:
+        var a;
+        rewind();
+        var i = 0; 
+        while (a=next()) {
+            // Do something with `a`
+            console.log("current value: " + i);
+            i++;
+        }
+
+    </script>
+</body>
+</html>

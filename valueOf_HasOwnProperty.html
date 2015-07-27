@@ -1,0 +1,43 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+</head>
+<body>
+    <script>
+        //This method depends on the type of object. For regular objects such as arrays, regular
+        //expressions, and functions, it returns the object itself:
+
+        var o = {}, a = [];
+        o.valueOf() === o; // true
+        a.valueOf() === a; // true
+
+
+        //For objects created by the primitive wrappers Number(), Boolean(), and String(), it
+        //returns the primitive value. For Date objects, it returns a timestamp (same as the get
+        //Time() method):
+
+        new Number(9).valueOf() === 9; // true
+        new String("boo").valueOf() === "boo"; // true
+        typeof (new Date()).valueOf(); // "number"
+
+        //hasOwnProperty()
+        //You already know a bit about the method hasOwnProperty(). It lets you differentiate
+        //between own methods and methods that have come down the prototype chain:
+
+        ({}).hasOwnProperty('toString'); // false
+        ({}).constructor.prototype.hasOwnProperty('toString'); // true
+
+        //Or another example using your own objects:
+
+        var papa = {name: "Papa"};
+        var KiddoConstructor = function () {};
+        KiddoConstructor.prototype = papa;
+        var kiddo = new KiddoConstructor();
+        kiddo.name; // "Papa"
+        kiddo.hasOwnProperty('name'); // false
+        papa.hasOwnProperty('name'); // true
+
+        </script>
+</body>
+</html>

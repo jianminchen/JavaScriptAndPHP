@@ -1,0 +1,58 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+</head>
+<body>
+    <script>
+        /*
+        Douglas Crockford, a JavaScript luminary and creator of JSON, popularized another
+way to implement inheritance by using a temporary constructor just to be able to set its
+prototype:
+        */
+
+        function begetObject(o) {
+            function F() { }
+            F.prototype = o;
+            return new F();
+        }
+
+        /*
+        You create a new object, but instead of starting fresh, you inherit some functionality
+from another, already existing, object.
+For example, say you have the following parent object:
+
+        */
+        var normal = {
+            name: 'name me',
+            getName: function () {
+                return this.name;
+            }
+        };
+
+        /*
+        You can then have a new object that inherits from the parent:
+        */
+
+        var shiny = begetObject(normal);
+
+        /*
+        The new object can be augmented with additional functionality:
+        */
+
+        shiny.round = true;
+        shiny.preciousness = true;
+
+        /*
+        As you can see, there’s no property copying, nor any constructors in sight. A new object
+inherits from an existing one. This was actually embraced by the community as a good
+        idea, and is now part of ECMAScript 5 in the form of Object.create(), as you’ll see
+in Chapter 6.
+        */
+        /*
+        As an exercise in closures and optimization, can you change begetObject() so that F()
+        is not created every time?
+        */
+    </script>
+</body>
+</html>

@@ -1,0 +1,150 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+</head>
+<body>
+    <script>
+       /* The Array() constructor creates arrays using the arguments passed to it as elements of
+        the array:
+        */
+        var a = new Array(1, 2, "boom!");
+        a.length; // 3
+        a[0]; // 1
+        a[1]; // 2
+        a[2]; // "boom!"
+
+
+        /* Omitting new also works:
+        */
+        var a = Array(1, 2);
+        a.length; // 2
+
+        /*
+        If you pass only one argument, and this argument is an integer, you’ll get an array where
+the length equals the numeric value of the argument:
+        */
+
+        var a = new Array(12);
+        a.length; // 12
+        a[0]; // undefined
+
+        /*
+        Passing a float causes an error:
+        */
+        try{
+            var a = new Array(1.2); // RangeError: Invalid array length
+        } catch (e) {
+            console.log('error type name:' + e.name + ' [error message]:' + e.message); 
+        }
+
+        /*
+        Passing a string works as usual:
+        */
+        var a = new Array("12");
+        a.length; // 1
+        a[0]; // "12"
+
+
+        // array length
+        /*
+        Similar to count() in PHP, the length property gives you the number of elements:
+        */
+        [1, 2, 3, 4].length; // 4
+
+        /*
+        But be aware that length is mutable:
+        */
+        var a = [1, 2, 3, 4];
+        a.length; // 4
+        a.length = 100;
+        a.length; // 100
+
+
+        /*
+        In this case, elements a[4] through a[99] don’t exist, and you’ll get undefined if you
+ask for their values, for example, in a loop from 0 to a.length.
+        */
+        var a = [1, 2, 3, 4];
+        a.length = 100;
+        a[10]; // undefined
+        99 in a; // false
+
+        /*
+        Somewhat similar is this example:
+        */
+        var a = [1, 2, 3, 4];
+        a[99] = undefined;
+        a.length; // 100
+
+        /*
+        The difference is that here the element a[99] exists because you’ve created it, even if it
+has the undefined value. All other elements a[4] through a[98] do not exist:
+        */
+        var a = [1, 2, 3, 4];
+        a[99] = undefined;
+        99 in a; // true
+        98 in a; // false
+        a.length; // 100
+
+        /*
+        Just like array_push() in PHP, Array.prototype.push() appends an element to the
+end of the array:
+        */
+        // JavaScript
+        var a = [1, 2];
+        a.push(3, 4);
+        a.toString(); // "1,2,3,4"
+
+        /*
+        Array.prototype.push() returns the length of the updated array:
+[1,
+        */
+        [1, 2].push("a", "b"); // 4
+
+        /*
+        pop()
+The opposite of push() is pop(). It removes the last element from the array and returns
+it:
+        $a = array(1, 2, 3);
+$what = array_pop($a);
+echo count($a); // 2
+echo $what; // 3
+        */
+
+        // JavaScript
+        var a = [1, 2, 3];
+        var what = a.pop();
+        a.toString(); // "1,2"
+        what; // 3
+
+        /*
+        unshift()
+Array.prototype.unshift() is like Array.prototype.push() but adds the new element
+to the beginning of the array. It also returns the new length. The PHP equivalent
+is array_unshift():
+        */
+
+        // JavaScript
+        var a = [1, 2];
+        var count = a.unshift(3, 4);
+        a.toString(); // "3,4,1,2"
+        count; // 4
+
+        /*
+        shift()
+shift() is the opposite of unshift(). It removes the first element of the array and
+returns it. It’s JavaScript’s equivalent of PHP’s array_shift():
+        */
+
+        // JavaScript
+        var a = [1, 2, 3];
+        var first = a.shift();
+        a.toString(); // "2,3"
+        first; // 1
+
+
+
+    </script>
+</body>
+</html>

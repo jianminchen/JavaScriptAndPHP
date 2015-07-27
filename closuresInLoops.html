@@ -1,0 +1,29 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+
+    <script>
+        var fns = [];
+        function definer() {
+            for (var i = 0; i < 5; i++) {
+                fns.push(function () {
+                    return i;
+                });
+            }
+        }
+        definer();
+
+        var i1 = fns[0]();
+        var i2 = fns[1]();
+        var i3 = fns[2]();
+        var i4 = fns[3]();
+        var i5 = fns[4]();
+
+
+    </script>
+</head>
+<body>
+
+</body>
+</html>
